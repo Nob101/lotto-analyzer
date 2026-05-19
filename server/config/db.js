@@ -1,13 +1,22 @@
 import Database from 'better-sqlite3';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import fs from 'fs';
 
 // Pfade durchsuchen!
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// FIX: DB_DIR erstellen
+const __dbDir = path.resolve(__dirname, '../db');
 
-const dbPath = path.resolve(__dirname, '../db/database.db');
+if (!fs.existsSync(__dbDir)) {
+    fs.mkdirSync(__dbDir, { recursive: true });
+}
+
+
+
+const dbPath = path.resolve(__dbDir, 'database.db');
 const db = new Database(dbPath);
 
 
