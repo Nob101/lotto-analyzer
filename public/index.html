@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Lotto Analyzer</title>
+</head>
+<body>
+
+    <div class="menu__bar">
+        <h1 class="logo">Analyse <span>LA.</span></h1>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Pages <i class="fas fa-caret-down"></i></a>
+                <div class="dropdown__menu">
+                    <ul>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="#">Wetter <i class="fas fa-caret-down"></i></a>
+                <div class="dropdown__menu wetter-dropdown">
+                    <div id="wetter-container" class="wetter-card">
+                        </div>
+                </div>
+            </li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        
+        <h2 class="ichigo">Euromillionen</h2>
+
+        <form id="main">
+            <div id="zahlen">
+                <h3>Hauptzahlen</h3>
+            </div>
+            <div id="zz">
+                <h3>Zusatzzahlen</h3>
+            </div>
+            <button type="submit" id="add-btn">Hinzufügen</button>
+        </form>
+
+        <div class="joker-section">
+            <label for="sixDigitInput" class="joker-label">Joker Zahl (0-9):</label>
+            <input type="text" id="sixDigitInput" maxlength="6" pattern="\d{6}" placeholder="z.B. 123456" />
+            <button type="submit" id="analyzeSixBtn">Analysiere</button>
+        </div>
+
+        <div class="content-row">
+            <div class="left-col">
+                <div id="output"></div>
+                <div id="guesser"></div>
+                <div id="comboOutput"></div>
+            </div>
+            <div id="joker-guesser"></div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <p><strong>Rechtlicher Hinweis:</strong> Dieses Projekt dient ausschließlich zu Ausbildungs-, Analyse- und Lernzwecken. Die Nutzung der Daten erfolgt auf eigene Verantwortung. Dieses Tool stellt keine Aufforderung zum Glücksspiel dar. <span>Glücksspiel kann süchtig machen.</span></p>
+            </div>
+            <div class="footer-section">
+                <p><strong>Legal Notice:</strong> This project is for educational and analytical purposes only. Use this tool and its data at your own risk. This tool does not encourage gambling. <span>Gambling can be addictive.</span></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Lotto Analyzer LA. Alle Rechte vorbehalten / All rights reserved.
+        </div>
+    </footer>
+
+
+    <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>

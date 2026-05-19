@@ -1,0 +1,40 @@
+
+# Abhängigkeiten
+node_modules/
+dist/
+build/
+public/build/
+assets/dist/
+npm-debug.log*
+
+
+# DB-Spezifikation
+server/db/database.db
+*.db
+*.sqlite
+
+#IDE-Dateien
+.vscode/
+.idea/
+*.swp
+*.swo
+*.http
+
+
+# Betriebssystem-Müll (macOS) hidden sysfile -> Metadaten
+.DS_Store
+Thumbs.db
+
+
+# Zeichnungen / Temporäres
+temp/
+db.json
+*.drawio
+*.drawio.svg
+*.drawio.png
+
+
+# Security & Config 
+.env
+certs/
+*.pem

@@ -1,0 +1,283 @@
+/* Lukas Atzmüller
+NEW: STYLE moderner  */
+:root{
+  --shadow: rgba(0, 0, 0, 0.3);
+  --background: #2a2a34;          
+  --card-bg: #2a2b36;             /* NEU: Etwas helleres Dunkel für die Boxen */
+  --text-color: #f5f5f7;          
+  --white: #fbefef;
+  --color-primary: #4ade80;       
+  --accent-orange: #f6b87f;      
+}
+
+
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body { 
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--background);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding-bottom: 50px;
+}
+
+/* Menu Area Start */
+.menu__bar {
+  background-color: var(--card-bg);
+  height: 70px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  box-shadow: 0 4px 20px var(--shadow);
+}
+
+.logo {
+  color: var(--white);
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.logo span {
+  color: var(--color-primary);
+}
+
+.menu__bar ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.menu__bar ul li {
+  padding: 10px 20px;
+  position: relative;
+}
+
+.menu__bar ul a {
+  color: #b3b3b3;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.menu__bar ul a:hover {
+  color: var(--color-primary);
+}
+
+.dropdown__menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;     /*FIX: Rechtsbündig ausgerichtet */
+  background-color: var(--card-bg);
+  padding: 10px;
+  min-width: 250px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.menu__bar ul li:hover .dropdown__menu {
+  display: block;
+}
+
+.dropdown__menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dropdown__menu ul li {
+  padding: 8px 12px;
+  width: 100%;
+  text-align: left;
+}
+
+/* Form & Inputs */
+.container {
+  max-width: 1200px;
+  margin: 15px auto;
+  padding: 2rem;
+}
+
+h2.ichigo {
+  font-size: 2rem;
+  color: var(--accent-orange);
+  margin-bottom: 1.5rem;
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent-orange);
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+#zahlen input, #zz input{
+  margin-left: 8px;
+  margin-right: 15px;
+  width: 60px;
+}
+
+#zahlen label, #zz label{
+  color: var(--accent-orange);
+
+}
+
+
+/*NEW: Schönere Inputs und Buttons */
+input[type="text"] {
+  background-color: var(--card-bg);
+  border: 1px solid #444;
+  color: var(--white);
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 15px;
+  margin-right: 15px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+input[type="text"]:focus {
+  border-color: var(--color-primary);
+}
+
+button {
+  background-color: var(--color-primary);
+  color: #111;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px 0px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s, background-color 0.2s;
+
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+button:hover {
+  background-color: #3bc771;
+  transform: translateY(-1px);
+}
+
+/* FIX: Layout Grid für den Content */
+.content-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;   /* Links breiter, rechts schmaler für Kombinationen */
+  gap: 30px;
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .content-row {
+    grid-template-columns: 1fr; /* Handys */
+  }
+}
+
+.left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Styling für die generierten Boxen */
+ul.highlighted {
+  background-color: var(--accent-orange);
+  color: #111;
+  border-radius: 8px;
+  padding: 15px;
+  list-style-position: inside;
+  box-shadow: 0 4px 15px rgba(236, 143, 66, 0.2);
+}
+
+ul.highlighted li {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/*WICHITG:  Farbklassen für die Zahlen im JS-Teil */
+.blue   { color: #54a0ff; font-weight: bold; }
+.green  { color: var(--color-primary); font-weight: bold; }
+.red    { color: #ff6b6b; font-weight: bold; }
+.purple { color: #a55eea; font-weight: bold; }
+.orange { color: var(--accent-orange); font-weight: bold; }
+
+/* NEW: Wetter API */
+#wetter-container {
+  background: var(--card-bg);
+  padding: 15px;
+  border-radius: 6px;
+  color: var(--text-color);
+}
+
+/* Joker Styling */
+.joker-section {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.joker-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+
+
+/* Footer */
+
+.footer {
+  background-color: var(--card-bg);
+  border-top: 1px solid #333;
+  margin-top: 80px;
+  padding: 40px 20px 20px 20px;
+  font-size: 13px;
+  color: #a0a0a5;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+}
+
+.footer-section {
+  flex: 1;
+}
+
+.footer-section p {
+  margin-bottom: 10px;
+}
+
+/*Wichtig: Hebt den Sucht-Warnhinweis  hervor */
+.footer-section span {
+  color: #ff6b6b; 
+  font-weight: bold;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 30px auto 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+  text-align: center;
+  font-size: 11px;
+}
+
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
