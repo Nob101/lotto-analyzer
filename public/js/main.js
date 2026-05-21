@@ -192,6 +192,14 @@ function analyzeNumbers() {
     for (let i = 0; i < letzteZusatzzahlen.length; i += 2) {
         console.log(letzteZusatzzahlen.slice(i, i + 2).join(' | '));
     }    
+
+    // NEW: Joker Einträge in Konsolle ausgeben
+    const lastJoker = Joker.getLastSixJokerNumbers();
+    if(lastJoker.length === 0){
+        console.log('Noch keine Joker-Einträge vorhanden');
+    } else {
+        console.log(lastJoker.join(' | '));
+    }
 }
 
 // --- ASYNCHRONER EUROMILLIONEN GET-CALL ---
@@ -217,13 +225,16 @@ async function loadDataAndAnalyze() {
     } catch (error) {
         console.error('Fehler beim Laden der DB-Daten:', error);
     }
+
+
 }
 
 // --- INITIALISIERUNG BEIM SEITENSTART ---
 async function init() {
-    // Beide Datensätze parallel/nacheinander aus der echten SQLite-DB ziehen
-    await loadDataAndAnalyze();
+  
+    // Datensätze parallel/nacheinander aus der  SQLite-DB ziehen
     await loadJokerDataAndAnalyze();
+    await loadDataAndAnalyze();
     
     // Helfermodule starten
     randomGuesser();

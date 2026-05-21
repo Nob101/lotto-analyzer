@@ -77,3 +77,10 @@ export function analyzeSixDigitHistory() {
         </ul>
     `;
 }
+
+
+// NEW: letzen 6 Joker Einträge
+
+export function getLastSixJokerNumbers(){
+    return sixDigitHistory.slice(-6).reverse();
+}

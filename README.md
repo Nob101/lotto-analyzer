@@ -94,6 +94,35 @@ npm run build
 
 
 
+
+# Conventional Commits (Schlüsselwörter für die automatische Versionierung)
+
+Damit der Bot die Versionsnummern automatisch verteilen kann, müssen Commit-Nachrichten **zwingend klein geschrieben** werden und folgendem Muster entsprechen:
+`typ: beschreibung` (z. B. `feat: dashboard hinzugefügt`)
+
+| Schlüsselwort | Bedeutung | Versions-Auswirkung |
+| :--- | :--- | :--- |
+| **`fix:`** | Behebt einen Fehler (Bugfix) | **Patch** (1.0.0 ➔ 1.0.1) |
+| **`feat:`** | Ein neues Feature oder eine neue Funktion | **Minor** (1.0.0 ➔ 1.1.0) |
+| **`perf:`** | Code-Änderung, die die Performance verbessert | **Patch** (1.0.0 ➔ 1.0.1) |
+| **`refactor:`** | Code-Umbau (weder Bugfix noch neues Feature) | Keine Änderung (oder Patch) |
+| **`style:`** | Formtierungen, fehlende Semikolons (keine Logikänderung) | Keine Änderung |
+| **`docs:`** | Reine Änderungen an der Dokumentation (z. B. README) | Keine Änderung |
+| **`test:`** | Hinzufügen oder Korrigieren von Tests | Keine Änderung |
+| **`chore:`** | Aktualisierung von Build-Tools, Verzeichnissen (z. B. .gitignore) | Keine Änderung |
+| **`ci:`** | Änderungen an Pipelines/GitHub Actions | Keine Änderung |
+
+#### Major-Updates 
+Wenn du eine Änderung machst, die alte Funktionen unbrauchbar macht (z. B. die komplette `dienstplan`-Tabelle umstrukturiert), signalisierst du das dem Bot durch ein **Ausrufezeichen** vor dem Doppelpunkt. Das löst sofort ein **Major-Update** aus:
+
+* `feat!: datenbankstruktur komplett auf v2 umgestellt` (1.0.0 ➔ 2.0.0)
+
+---
+
+
+
+
+
 # Quick Start
 
 Make sure [Node.js](https://nodejs.org/) is installed on your system.
@@ -144,4 +173,28 @@ npm run build
 
 
 ---
+
+
+
+## Conventional Commits (Keywords for Automatic Versioning)
+
+To enable the bot to automatically distribute version numbers, commit messages must follow this specific pattern:
+`type: description` (e.g., `feat: added joker database integration`)
+
+| Keyword | Meaning | Version Impact |
+| :--- | :--- | :--- |
+| **`fix:`** | Fixes a bug (Bugfix) | **Patch** (1.0.0 ➔ 1.0.1) |
+| **`feat:`** | A new feature or functionality | **Minor** (1.0.0 ➔ 1.1.0) |
+| **`perf:`** | A code change that improves performance | **Patch** (1.0.0 ➔ 1.0.1) |
+| **`refactor:`** | A code change that neither fixes a bug nor adds a feature | No change (or Patch) |
+| **`style:`** | Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons) | No change |
+| **`docs:`** | Documentation only changes (e.g., README) | No change |
+| **`test:`** | Adding missing tests or correcting existing tests | No change |
+| **`chore:`** | Updates to build tools, dependencies, or configurations (e.g., .gitignore) | No change |
+| **`ci:`** | Changes to CI/CD pipelines and GitHub Actions workflows | No change |
+
+#### Major Updates 
+If you introduce a breaking change that makes previous versions incompatible (e.g., completely restructuring the SQLite database schema), you signal this to the bot by adding an **exclamation mark** before the colon. This immediately triggers a **Major Update**:
+
+* `feat!: overhauled database structure to v2` (1.1.0 ➔ 2.0.0)
 

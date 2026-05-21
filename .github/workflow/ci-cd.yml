@@ -1,0 +1,47 @@
+# für spätere Upgrades, Erweiterungen und Patches
+
+name: CI/CD for Lotto Analyzer
+
+# Trigger der pipline
+on:
+  push:
+    branches: [main]    #...wenn ins main gepushed wird
+  pull_request:
+    branches: [main]    #...wenn ins main gemerged wird
+# die eigentliche Ausführung
+jobs:
+  quality-check:
+    runs-on: ubuntu-latest    # startet linux-server
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm ci     # installiert pakete (ci strenger als nur i)
+
+      - name: Security Audit
+        run: npm audit --audit-level=high   # Scannt auf schwere Sicherheitslücken
+# Automatische versioniereung
+  release:
+    needs: quality-check   # wartet auf beendigung des quality-checks
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:    # rechteverwaltung
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

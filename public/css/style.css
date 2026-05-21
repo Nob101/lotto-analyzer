@@ -2,7 +2,7 @@
 NEW: STYLE moderner  */
 :root{
   --shadow: rgba(0, 0, 0, 0.3);
-  --background: #2a2a34;          
+  --background: #333344;          
   --card-bg: #2a2b36;             /* NEU: Etwas helleres Dunkel für die Boxen */
   --text-color: #f5f5f7;          
   --white: #fbefef;
