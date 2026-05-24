@@ -78,7 +78,6 @@ export function analyzeSixDigitHistory() {
     `;
 }
 
-
 // NEW: letzen 6 Joker Einträge
 
 export function getLastSixJokerNumbers(){

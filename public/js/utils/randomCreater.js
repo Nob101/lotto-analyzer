@@ -22,8 +22,6 @@ export  function randomGuesser() {
         let numbers = [];
         let zusatzzahlen = [];
 
-      
-        
         // 5 zahlen werden zufällig gesucht
         while (numbers.length < 5) {
 
@@ -51,13 +49,9 @@ export  function randomGuesser() {
 // debugger
 
 
-         
-
         // sortieren der zahlen in den Arrays
         numbers.sort((a, b) => a - b);
         zusatzzahlen.sort((a, b) => a - b);
-
-
 
 // console.log(numbers);
 // console.log(zusatzzahlen);
@@ -70,7 +64,6 @@ export  function randomGuesser() {
         <span class = "green" > ${numbers.join(' | ')} </span>  |  <span class = "red" > ${zusatzzahlen.join(' | ')} </span>
         `
         newOutput.appendChild(outPutList);
-       
     }
    
     outPutList.appendChild(newOutput);

@@ -1,3 +1,4 @@
+
 // Funktion zum Aufteilen des Zahlen-Arrays in 5er-Folgen basierend auf aufsteigender Reihenfolge
 export function splitSequences(arr) {
   const sequences = [];
@@ -28,7 +29,7 @@ export function analyzeNumberFrequency(sequences) {
 
 
 // Analyse der Frequenz der 2er-Kombinationen jeder 5er-Folge
-// Diese Funktion ersetzt die vorherige analyse für 3er-Kombinationen
+
 export function analyzeSequences(sequences) {
   const comboFreq = {};
   // Prüfen ob es eine 5erfolge ist oder nicht
@@ -118,9 +119,7 @@ export function displayComboFreqAndTopNumbers(freqMap, combo3Freq, numFreq) {
 
 
 
-
-
-
+// ---------------------------------------------
 
 
 
@@ -130,7 +129,6 @@ export function analyzeAndDisplayNumberSequences(zahlen) {
     console.error("Fehler: zahlen ist kein Array.", zahlen);
     return;
   }
-
   zahlen = zahlen.map(num => typeof num === 'string' ? parseInt(num, 10) : num);
 
   if (!zahlen.every(num => typeof num === 'number' && !isNaN(num))) {
@@ -149,3 +147,5 @@ export function analyzeAndDisplayNumberSequences(zahlen) {
   const numFreq = analyzeNumberFrequency(sequences);
   displayComboFreqAndTopNumbers(freqMap, freqMap3, numFreq);
 }
+
+

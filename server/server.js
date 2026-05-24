@@ -1,5 +1,7 @@
 
 
+
+
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -38,7 +40,6 @@ app.get('/api/joker', getJokerHistory);
 app.post('/api/joker', saveJokerNumber);
 
 
-
 /* 
 app.get('/api/test', (req, res) => {
      res.json({ message: "Server und Datenbank laufen!" });
@@ -49,4 +50,6 @@ app.get('/api/test', (req, res) => {
 app.listen(PORT, () => {
     console.log(` Server läuft auf: http://localhost:${PORT}`);
 });
+
+
 
