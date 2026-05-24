@@ -129,6 +129,7 @@ digitForm.addEventListener('submit', async (e) => {
         return;
     }
 
+    
     if (isValid) {
         try {
             // Sende neue Ziehung an das Backend
