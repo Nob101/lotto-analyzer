@@ -39,8 +39,6 @@ export const saveEuromillionsDraw = (req, res) => {
 
 
 
-
-
 // -- JOKER CONTROLLER ---
 
 // NEU: Alle Joker-Nummern aus der DB holen

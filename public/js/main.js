@@ -190,6 +190,7 @@ function analyzeNumbers() {
     const letzteHauptzahlen = zahlen.slice(-20); 
     const letzteZusatzzahlen = zz.slice(-8);
 
+    
     for (let i = 0; i < letzteHauptzahlen.length; i += 5) {
         console.log(letzteHauptzahlen.slice(i, i + 5).join('  '));
     }

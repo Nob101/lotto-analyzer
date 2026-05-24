@@ -6,7 +6,6 @@ import { fileURLToPath } from 'url';
 
 import db from './config/db.js'; // Importiert  DB-Setup!
 
-
 // NEW:  Controller-Funktionen importieren
 import { 
     getEuromillionsHistory, 
@@ -37,6 +36,7 @@ app.post('/api/euromillions', saveEuromillionsDraw);
 // Joker
 app.get('/api/joker', getJokerHistory);
 app.post('/api/joker', saveJokerNumber);
+
 
 
 /* 
