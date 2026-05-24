@@ -14,8 +14,6 @@ if (!fs.existsSync(__dbDir)) {
     fs.mkdirSync(__dbDir, { recursive: true });
 }
 
-
-
 const dbPath = path.resolve(__dbDir, 'database.db');
 const db = new Database(dbPath);
 

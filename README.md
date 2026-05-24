@@ -94,7 +94,6 @@ npm run build
 
 
 
-
 # Conventional Commits (Schlüsselwörter für die automatische Versionierung)
 
 Damit der Bot die Versionsnummern automatisch verteilen kann, müssen Commit-Nachrichten **zwingend klein geschrieben** werden und folgendem Muster entsprechen:
@@ -118,8 +117,6 @@ Wenn du eine Änderung machst, die alte Funktionen unbrauchbar macht (z. B. die 
 * `feat!: datenbankstruktur komplett auf v2 umgestellt` (1.0.0 ➔ 2.0.0)
 
 ---
-
-
 
 
 

@@ -84,3 +84,4 @@ export function analyzeSixDigitHistory() {
 export function getLastSixJokerNumbers(){
     return sixDigitHistory.slice(-6).reverse();
 }
+

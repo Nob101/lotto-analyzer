@@ -45,7 +45,6 @@ app.get('/api/test', (req, res) => {
  }); 
  */
 
-
 // Server starten
 app.listen(PORT, () => {
     console.log(` Server läuft auf: http://localhost:${PORT}`);
