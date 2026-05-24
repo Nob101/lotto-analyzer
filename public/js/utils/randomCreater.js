@@ -64,14 +64,10 @@ export  function randomGuesser() {
 
         //  numbers and Zusatzzahlen to HTML
         let outPutList = document.createElement('div');
-       
-       
         outPutList.innerHTML =  
         `
-         
          <br>
         <span class = "green" > ${numbers.join(' | ')} </span>  |  <span class = "red" > ${zusatzzahlen.join(' | ')} </span>
-        
         `
         newOutput.appendChild(outPutList);
        

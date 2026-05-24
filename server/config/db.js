@@ -21,6 +21,7 @@ const db = new Database(dbPath);
 
 
 // Tabellen erstellen, falls nicht vorhanden
+// Euromillionen
 
 db.prepare(`
     CREATE TABLE IF NOT EXISTS euromillions (
@@ -32,6 +33,7 @@ db.prepare(`
         h5 INTEGER NOT NULL,
         z1 INTEGER NOT NULL,
         z2 INTEGER NOT NULL,
+        ziehungstag TEXT ,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
         )
     
@@ -46,6 +48,10 @@ db.prepare(`
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )
 `).run();
+
+
+
+
 
 console.log('--- SQLite Datenbank erfolgreich initialisiert ---');
 export default db;

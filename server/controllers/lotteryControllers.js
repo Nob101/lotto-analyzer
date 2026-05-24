@@ -17,18 +17,18 @@ export const getEuromillionsHistory = (req, res) => {
 // -
 export const saveEuromillionsDraw = (req, res) => {
     try {
-        const { haupt, zusatz } = req.body; // Erwartet Arrays, z.B. haupt: [5,12,23,...], zusatz: [2,7]
+        const { haupt, zusatz, ziehungstag } = req.body; // Erwartet Arrays, z.B. haupt: [5,12,23,...], zusatz: [2,7]
 
         if (!haupt || haupt.length !== 5 || !zusatz || zusatz.length !== 2) {
             return res.status(400).json({ error: 'Ungültiges Zahlenformat. Erwartet werden 5 Haupt- und 2 Zusatzzahlen.' });
         }
 
         const insert = db.prepare(`
-            INSERT INTO euromillions (h1, h2, h3, h4, h5, z1, z2)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO euromillions (h1, h2, h3, h4, h5, z1, z2, ziehungstag)
+            VALUES (?, ?, ?, ?, ?, ?, ?,?)
         `);
 
-        insert.run(haupt[0], haupt[1], haupt[2], haupt[3], haupt[4], zusatz[0], zusatz[1]);
+        insert.run(haupt[0], haupt[1], haupt[2], haupt[3], haupt[4], zusatz[0], zusatz[1], ziehungstag);
 
         res.status(201).json({ message: 'Ziehung erfolgreich gespeichert!' });
     } catch (error) {

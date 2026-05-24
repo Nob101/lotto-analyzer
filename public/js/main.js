@@ -21,7 +21,7 @@ async function loadJokerDataAndAnalyze() {
         
         const rows = await response.json();     // Liefert Array von Objekten [{id, joker_number}, ...]
         
-        // Synchronisiere das Joker-Modul und startet die Berechnung
+        // Synchronisiert das Joker-Modul und startet die Berechnung
         Joker.setJokerHistory(rows);
         Joker.analyzeSixDigitHistory();
     } catch (error) {
@@ -96,6 +96,10 @@ digitForm.addEventListener('submit', async (e) => {
     const neueZusatzzahlen = [];
     let isValid = true;
 
+
+    // NEW: Den ziehungstag optional mitschicken
+    const ziehungsTag = document.getElementById('ziehungstag').value || null;
+
     // Hauptzahlen einlesen und validieren
     for (let i = 1; i <= 5; i++) {
         const wert = parseInt(document.getElementById(`haupt${i}`).value);
@@ -131,7 +135,7 @@ digitForm.addEventListener('submit', async (e) => {
             const response = await fetch('/api/euromillions', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ haupt: neueHauptzahlen, zusatz: neueZusatzzahlen })
+                body: JSON.stringify({ haupt: neueHauptzahlen, zusatz: neueZusatzzahlen, ziehungstag: ziehungsTag })
             });
 
             if (!response.ok) throw new Error('Fehler beim Speichern in die DB');
