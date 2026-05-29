@@ -12,62 +12,59 @@
     <div class="menu__bar">
         <h1 class="logo">Analyse <span>LA.</span></h1>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Pages <i class="fas fa-caret-down"></i></a>
-                <div class="dropdown__menu">
-                    <ul>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                        <li><a href="#">Team</a></li>
-                        <li><a href="#">FAQ</a></li>
-                    </ul>
-                </div>
-            </li>
+            <li><a href="#" id="nav-euromillionen" class="active">Euromillionen</a></li>
+            <li><a href="#" id="nav-joker">Joker</a></li>
             <li>
                 <a href="#">Wetter <i class="fas fa-caret-down"></i></a>
                 <div class="dropdown__menu wetter-dropdown">
-                    <div id="wetter-container" class="wetter-card">
-                        </div>
+                    <div id="wetter-container" class="wetter-card"></div>
                 </div>
             </li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#">Placeholder</a></li>
         </ul>
     </div>
 
     <div class="container">
         
-        <h2 class="ichigo">Euromillionen</h2>
+        <div id="section-euromillionen" class="content-section active">
+            <h2 class="ichigo">Euromillionen</h2>
 
-        <form id="main">
-            <!-- NEW: Date (optional) -->
-            <div class="ziehungstag-container">
-                <label for="ziehungstag">Ziehungstag (Optional):</label>
-                <input type="date" id="ziehungstag" name="ziehungstag">
-            </div>
+            <form id="main">
+                <div class="ziehungstag-container">
+                    <label for="ziehungstag">Ziehungstag (Optional):</label>
+                    <input type="date" id="ziehungstag" name="ziehungstag">
+                </div>
 
-            <div id="zahlen">
-                <h3>Hauptzahlen</h3>
-            </div>
-            <div id="zz">
-                <h3>Zusatzzahlen</h3>
-            </div>
-            <button type="submit" id="add-btn">Hinzufügen</button>
-        </form>
+                <div id="zahlen">
+                    <h3>Hauptzahlen</h3>
+                </div>
+                <div id="zz">
+                    <h3>Zusatzzahlen</h3>
+                </div>
+                <button type="submit" id="add-btn">Hinzufügen</button>
+            </form>
 
-        <div class="joker-section">
-            <label for="sixDigitInput" class="joker-label">Joker Zahl (0-9):</label>
-            <input type="text" id="sixDigitInput" maxlength="6" pattern="\d{6}" placeholder="z.B. 123456" />
-            <button type="submit" id="analyzeSixBtn">Analysiere</button>
+            <div class="content-row">
+                <div class="left-col">
+                    <div id="output"></div>
+                    <div id="guesser"></div>
+                    <div id="comboOutput"></div>
+                </div>
+                </div>
         </div>
 
-        <div class="content-row">
-            <div class="left-col">
-                <div id="output"></div>
-                <div id="guesser"></div>
-                <div id="comboOutput"></div>
+        <div id="section-joker" class="content-section">
+            <h2 class="ichigo">Joker</h2>
+
+            <div class="joker-section">
+                <label for="sixDigitInput" class="joker-label">Joker Zahl (0-9):</label>
+                <input type="text" id="sixDigitInput" maxlength="6" pattern="\d{6}" placeholder="z.B. 123456" />
+                <button type="submit" id="analyzeSixBtn">Analysiere</button>
             </div>
-            <div id="joker-guesser"></div>
+
+            <div class="joker-content-wrapper">
+                <div id="joker-guesser"></div>
+            </div>
         </div>
 
     </div>
@@ -86,8 +83,6 @@
         </div>
     </footer>
 
-
     <script type="module" src="./js/main.js"></script>
 </body>
-
 </html>

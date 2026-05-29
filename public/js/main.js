@@ -249,3 +249,48 @@ async function init() {
 
 // Anwendung starten
 init();
+
+
+
+
+// --------------------------
+// --- REITER TOGGLE LOGIK ---
+const navEuromillionen = document.getElementById('nav-euromillionen');
+const navJoker = document.getElementById('nav-joker');
+
+const sectionEuromillionen = document.getElementById('section-euromillionen');
+const sectionJoker = document.getElementById('section-joker');
+const outputWrapper = document.getElementById('output-wrapper');
+const jokerWrapper = document.getElementById('joker-wrapper');
+
+if (navEuromillionen && navJoker) {
+    navEuromillionen.addEventListener('click', (e) => {
+        e.preventDefault();
+        // Aktive Klassen für Navigations-Links setzen
+        navEuromillionen.classList.add('active');
+        navJoker.classList.remove('active');
+
+        // Formular-Sektionen umschalten
+        sectionEuromillionen.classList.add('active');
+        sectionJoker.classList.remove('active');
+
+        // Analyse-Outputs umschalten
+        outputWrapper.classList.add('active');
+        jokerWrapper.classList.remove('active');
+    });
+
+    navJoker.addEventListener('click', (e) => {
+        e.preventDefault();
+        // Aktive Klassen für Navigations-Links setzen
+        navJoker.classList.add('active');
+        navEuromillionen.classList.remove('active');
+
+        // Formular-Sektionen umschalten
+        sectionJoker.classList.add('active');
+        sectionEuromillionen.classList.remove('active');
+
+        // Analyse-Outputs umschalten
+        jokerWrapper.classList.add('active');
+        outputWrapper.classList.remove('active');
+    });
+}
