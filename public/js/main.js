@@ -1,4 +1,3 @@
-"use strict"
 
 import { randomGuesser } from "./utils/randomCreater.js";
 import { ladeWetter } from "./api/weather_api.js";
@@ -266,31 +265,29 @@ const jokerWrapper = document.getElementById('joker-wrapper');
 if (navEuromillionen && navJoker) {
     navEuromillionen.addEventListener('click', (e) => {
         e.preventDefault();
-        // Aktive Klassen für Navigations-Links setzen
+        
         navEuromillionen.classList.add('active');
         navJoker.classList.remove('active');
 
-        // Formular-Sektionen umschalten
-        sectionEuromillionen.classList.add('active');
-        sectionJoker.classList.remove('active');
+        if (sectionEuromillionen) sectionEuromillionen.classList.add('active');
+        if (sectionJoker) sectionJoker.classList.remove('active');
 
-        // Analyse-Outputs umschalten
-        outputWrapper.classList.add('active');
-        jokerWrapper.classList.remove('active');
+        // FIX: Nur umschalten, wenn die Elemente existieren
+        if (outputWrapper) outputWrapper.classList.add('active');
+        if (jokerWrapper) jokerWrapper.classList.remove('active');
     });
 
     navJoker.addEventListener('click', (e) => {
         e.preventDefault();
-        // Aktive Klassen für Navigations-Links setzen
+        
         navJoker.classList.add('active');
         navEuromillionen.classList.remove('active');
 
-        // Formular-Sektionen umschalten
-        sectionJoker.classList.add('active');
-        sectionEuromillionen.classList.remove('active');
+        if (sectionJoker) sectionJoker.classList.add('active');
+        if (sectionEuromillionen) sectionEuromillionen.classList.remove('active');
 
-        // Analyse-Outputs umschalten
-        jokerWrapper.classList.add('active');
-        outputWrapper.classList.remove('active');
+        // FIX: Nur umschalten, wenn die Elemente existieren
+        if (jokerWrapper) jokerWrapper.classList.add('active');
+        if (outputWrapper) outputWrapper.classList.remove('active');
     });
 }

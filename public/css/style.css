@@ -30,8 +30,10 @@ body {
 
 .container {
   max-width: 1200px;
-  margin: 15px auto;
+  margin: 90px auto 15px auto;
   padding: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 
