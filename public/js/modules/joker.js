@@ -52,9 +52,9 @@ export function analyzeSixDigitHistory() {
     });
 
             // Sortierung und Limitierung für die Top-Anzeigewerte
-            const jackOutput = Object.entries(jackPot).sort((a, b) => b[1] - a[1]).slice(0, 3);
-            const sortedCombos = Object.entries(comboFreq).sort((a, b) => b[1] - a[1]).slice(0, 8);
-            const sortedDouble = Object.entries(doubleFreq).sort((a, b) => b[1] - a[1]).slice(0, 9);
+            const jackOutput = Object.entries(jackPot).sort((a, b) => b[1] - a[1]).slice(0, 4);
+            const sortedCombos = Object.entries(comboFreq).sort((a, b) => b[1] - a[1]).slice(0, 6);
+            const sortedDouble = Object.entries(doubleFreq).sort((a, b) => b[1] - a[1]).slice(0, 7);
             const sortedSingles = Object.entries(singleFreq).sort((a, b) => b[1] - a[1]);
 
     //FIX: HTML Container validieren und befüllen
