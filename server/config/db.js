@@ -33,7 +33,7 @@ db.prepare(`
         z2 INTEGER NOT NULL,
         ziehungstag TEXT ,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-        )
+    )
     
     `).run();
 
@@ -45,9 +45,22 @@ db.prepare(`
         joker_number TEXT NOT NULL,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )
-`).run();
+    `).run();
 
-
+db.prepare(`
+    CREATE TABLE IF NOT EXISTS lotto_6_aus_45 (
+        id integer Primary KEY autoincrement,
+        h1 INTEGER NOT NULL,
+        h2 INTEGER NOT NULL,
+        h3 Integer NOT NULL,
+        h4 INTEGER NOT NULL,
+        h5 INTEGER NOT NULL,
+        h6 Integer NOT NULL,
+        zz Integer not NULL,
+        ziehungstag TEXT,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+    `).run();
 
 
 

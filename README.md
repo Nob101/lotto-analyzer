@@ -112,7 +112,7 @@ Damit der Bot die Versionsnummern automatisch verteilen kann, müssen Commit-Nac
 | **`ci:`** | Änderungen an Pipelines/GitHub Actions | Keine Änderung |
 
 #### Major-Updates 
-Wenn du eine Änderung machst, die alte Funktionen unbrauchbar macht (z. B. die komplette `dienstplan`-Tabelle umstrukturiert), signalisierst du das dem Bot durch ein **Ausrufezeichen** vor dem Doppelpunkt. Das löst sofort ein **Major-Update** aus:
+Wenn eine Änderung  alte Funktionen unbrauchbar macht (z. B. die komplette `dienstplan`-Tabelle umstrukturiert), signalisierst das dem Bot durch ein **Ausrufezeichen** vor dem Doppelpunkt. Das löst sofort ein **Major-Update** aus:
 
 * `feat!: datenbankstruktur komplett auf v2 umgestellt` (1.0.0 ➔ 2.0.0)
 

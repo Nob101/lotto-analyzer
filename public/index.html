@@ -14,6 +14,7 @@
         <ul>
             <li><a href="#" id="nav-euromillionen" class="active">Euromillionen</a></li>
             <li><a href="#" id="nav-joker">Joker</a></li>
+            <li><a href="#" id="nav-lotto">Lotto 6 aus 45</a></li> 
             <li>
                 <a href="#">Wetter <i class="fas fa-caret-down"></i></a>
                 <div class="dropdown__menu wetter-dropdown">
@@ -66,6 +67,28 @@
                 <div id="joker-guesser"></div>
             </div>
         </div>
+
+        
+        <div id="section-lotto" class="content-section">
+            <h2 class="ichigo">Lotto 6 aus 45</h2>
+            <form id="lotto-main">
+                <div class="ziehungstag-container">
+                    <label for="lotto-ziehungstag">Ziehungstag (Optional):</label>
+                    <input type="date" id="lotto-ziehungstag" name="ziehungstag">
+                </div>
+        <div id="lotto-zahlen">
+            <h3>6 Hauptzahlen (1-45) & Zusatzzahl</h3>
+            </div>
+        <button type="submit" id="lotto-add-btn">Hinzufügen & Analysieren</button>
+    </form>
+    
+
+    <div class="content-row">
+        <div class="left-col">
+            <div id="lotto-comboOutput"></div> </div>
+    </div>
+</div>
+
 
     </div>
 

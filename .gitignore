@@ -38,3 +38,16 @@ db.json
 .env
 certs/
 *.pem
+
+
+# --- Java (WICHTIG!) ---
+# Ignoriert alle kompilierten Klassen und Ordner (merge-konflikte)
+java-backend/bin/
+*.class
+
+# Ignoriert IDE-spezifische Einstellungen von Eclipse
+java-backend/.settings/
+java-backend/.classpath
+java-backend/.project
+
+java-backend/LottoAnalyzer.jar

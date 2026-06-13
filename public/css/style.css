@@ -7,7 +7,8 @@ NEW: STYLE moderner  */
   --text-color: #f5f5f7;          
   --white: #fbefef;
   --color-primary: #4ade80;       
-  --accent-orange: #f6b87f;      
+  --accent-orange: #f6b87f;     
+  --accent-antratzit: #1f2937 ;
 }
 
 
@@ -231,8 +232,6 @@ button:hover {
   max-width: 450px;
   width: 100%;
 }
-
-
 
 
 /* Styling für die generierten Boxen */

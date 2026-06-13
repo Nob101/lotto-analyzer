@@ -95,7 +95,7 @@ export function displayComboFreqAndTopNumbers(freqMap, combo3Freq, numFreq) {
   .slice(0, 10)
 
 
-  outputDiv.innerHTML = 
+  outputDiv.innerHTML += 
   `
     <h2><span class="red">Häufigste</span> 2er-Kombinationen in <span class="blue">5er-Folgen</span></h2>
     <ul>
@@ -149,3 +149,65 @@ export function analyzeAndDisplayNumberSequences(zahlen) {
 }
 
 
+// ----------------------------------
+// NEW: Erweiterung für Lotto 6 aus 45
+// Wie bei Euromillionen
+// ----------------------------------
+
+export function analyzeLottoSequences(rows) {
+  const comboFreq = {};
+  rows.forEach(row => {
+    // Nur die 6 Hauptzahlen nehmen und aufsteigend sortieren
+    const seq = [row.h1, row.h2, row.h3, row.h4, row.h5, row.h6].map(Number).sort((a, b) => a - b);
+    
+    for (let i = 0; i < seq.length - 1; i++) {
+      for (let j = i + 1; j < seq.length; j++) {
+        const pairKey = `${seq[i]} | ${seq[j]}`;
+        comboFreq[pairKey] = (comboFreq[pairKey] || 0) + 1;
+      }
+    }
+  });
+  return comboFreq;
+}
+
+// 3er-Kombinationen aus den  6er-Ziehungen ermitteln
+export function analyzeLotto3ComboFrequency(rows) {
+  const combo3Freq = {};
+  rows.forEach(row => {
+    const seq = [row.h1, row.h2, row.h3, row.h4, row.h5, row.h6].map(Number).sort((a, b) => a - b);
+    
+    for (let i = 0; i < seq.length - 2; i++) {
+      for (let j = i + 1; j < seq.length - 1; j++) {
+        for (let k = i + 2; k < seq.length; k++) {
+          if (j >= k) continue; // Verhindert doppelte Indizes
+          const comboKey = `${seq[i]} | ${seq[j]} | ${seq[k]}`;
+          combo3Freq[comboKey] = (combo3Freq[comboKey] || 0) + 1;
+        }
+      }
+    }
+  });
+  return combo3Freq;
+}
+
+// rendern der Zahlen
+export function displayLottoCombos(freqMap, combo3Freq, anzahlZiehungen) {
+  const outputDiv = document.getElementById('lotto-comboOutput');
+  if (!outputDiv) return;
+
+  const sortedCombos2 = Object.entries(freqMap).sort((a, b) => b[1] - a[1]).slice(0, 10);
+  const sortedCombos3 = Object.entries(combo3Freq).sort((a, b) => b[1] - a[1]).slice(0, 10);
+
+  outputDiv.innerHTML += `
+    Von insgesamt <span class="blue">${anzahlZiehungen}</span> Ziehungen <br><br>
+
+    <h2><span class="ichigo">Häufigste</span> 2er-Kombinationen</h2>
+    <ul>
+      ${sortedCombos2.map(([combo, count]) => `<li>Kombination <span class="green">${combo}</span> kam <span class="blue">${count}</span> mal vor</li>`).join('')}
+    </ul>
+    <br>
+    <h2><span class="ichigo">Häufigste</span> 3er-Kombinationen</h2>
+    <ul>
+      ${sortedCombos3.map(([combo, count]) => `<li>Kombination <span class="red">${combo}</span> kam <span class="blue">${count}</span> mal vor</li>`).join('')}
+    </ul>
+  `;
+}
