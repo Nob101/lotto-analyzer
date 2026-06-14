@@ -92,6 +92,10 @@ async function loadJokerDataAndAnalyze() {
         const response = await fetch('/api/joker');
         if (!response.ok) throw new Error('Fehler beim Laden der Joker-Daten');
         const rows = await response.json();
+
+            console.log("---Letzten 5 Joker-Ziehungen---");
+            console.table(rows.slice(-5).reverse());
+
         Joker.setJokerHistory(rows);
         Joker.analyzeSixDigitHistory();
     } catch (error) {
@@ -104,6 +108,9 @@ async function loadDataAndAnalyze() {
         const response = await fetch('/api/euromillions');
         if (!response.ok) throw new Error('Fehler beim Laden aus der DB');
         const rows = await response.json();
+
+            console.log("---Letzten 5 Euromillionen-Ziehungen---");
+            console.table(rows.slice(-5).reverse());
 
         zahlen = [];
         zz = [];
@@ -126,7 +133,11 @@ async function loadLottoDataAndAnalyze() {
         if (!response.ok) throw new Error('Fehler beim Laden der Lotto-Daten aus der DB');
         
        const rows = await response.json();
-        if (!Array.isArray(rows) || rows.length === 0) return;
+        if (!Array.isArray(rows) || rows.length === 0) return;   //JAVA
+
+
+            console.log("---Letzten 5 Lotto 6 aus 45-Ziehungen---");
+            console.table(rows.slice(-5).reverse());
 
         // Arrays für die Häufigkeitsanalyse sammeln
         let lottoZahlen = [];

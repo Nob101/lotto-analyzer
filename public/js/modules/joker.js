@@ -57,12 +57,13 @@ export function analyzeSixDigitHistory() {
             const sortedDouble = Object.entries(doubleFreq).sort((a, b) => b[1] - a[1]).slice(0, 7);
             const sortedSingles = Object.entries(singleFreq).sort((a, b) => b[1] - a[1]);
 
+            let anzahlZiehung = sixDigitHistory.length;
     //FIX: HTML Container validieren und befüllen
     const outputSixDiv = document.getElementById('joker-guesser');
     if (!outputSixDiv) return;
 
     outputSixDiv.innerHTML = `
-        <h3>Häufigste Kombinationen </h3>
+        <h3>Häufigste Kombinationen der letzten ${anzahlZiehung} Ziehungen</h3>
         <ul class="highlighted">
             ${jackOutput.map(([combo, freq]) => `<li>Kombi <span class="blue">${combo}</span> kam <span class="red">${freq}</span> mal vor</li>`).join('')}
         </ul>
