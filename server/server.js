@@ -45,7 +45,7 @@ app.post('/api/lotto', saveLottoDraw);
 
 // Server starten
 app.listen(PORT, () => {
-    console.log(` Server läuft auf: http://localhost:${PORT}`);
+    console.log(` Server läuft auf: http://localhost:${PORT}....Browser wird geöffnet`);
 });
 
 
