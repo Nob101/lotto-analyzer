@@ -229,8 +229,19 @@ button:hover {
 }
 
 #joker-guesser {
-  max-width: 450px;
-  width: 80%;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* NEU: Joker Style in Kacheln */
+.kacheln-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 15px;
+
+  .text-blue   { color: #0052cc; font-weight: 800; } /* Kräftiges Dunkelblau */
+  .text-red    { color: #b30000; font-weight: 800; } /* Dunkles Signalrot */
 }
 
 
@@ -242,7 +253,8 @@ ul.highlighted {
   padding: 15px;
   list-style-position: inside;
   box-shadow: 0 4px 15px rgba(236, 143, 66, 0.2);
-  width: 60%;
+  width: 100%;
+  margin-bottom: 0;
 }
 
 ul.highlighted li {

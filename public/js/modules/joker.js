@@ -63,20 +63,21 @@ export function analyzeSixDigitHistory() {
     if (!outputSixDiv) return;
 
     outputSixDiv.innerHTML = `
-        <h3>Häufigste Kombinationen der letzten ${anzahlZiehung} Ziehungen</h3>
+    <h3>Häufigste Kombinationen der letzten ${anzahlZiehung} Ziehungen</h3>
+    <div class="kacheln-grid"> 
         <ul class="highlighted">
-            ${jackOutput.map(([combo, freq]) => `<li>Kombi <span class="blue">${combo}</span> kam <span class="red">${freq}</span> mal vor</li>`).join('')}
+            ${jackOutput.map(([combo, freq]) => `<li>Kombo <span class="text-blue">${combo}</span> kam <span class="text-red">${freq}</span> mal vor</li>`).join('')}
         </ul>
         <ul class="highlighted">
-            ${sortedCombos.map(([combo, freq]) => `<li>Kombi <span class="blue">${combo}</span> kam <span class="red">${freq}</span> mal vor</li>`).join('')}
+            ${sortedCombos.map(([combo, freq]) => `<li>Kombi <span class="text-blue">${combo}</span> kam <span class="text-red">${freq}</span> mal vor</li>`).join('')}
         </ul>
         <ul class="highlighted">
-            ${sortedDouble.map(([combo, freq]) => `<li>Kombi <span class="blue">${combo}</span> kam <span class="red">${freq}</span> mal vor</li>`).join('')}
+            ${sortedDouble.map(([combo, freq]) => `<li>Kombi <span class="text-blue">${combo}</span> kam <span class="text-red">${freq}</span> mal vor</li>`).join('')}
         </ul>
         <ul class="highlighted">
-            ${sortedSingles.map(([combo, freq]) => `<li>Zahl <span class="blue">${combo}</span> kam <span class="red">${freq}</span> mal vor</li>`).join('')}
+            ${sortedSingles.map(([combo, freq]) => `<li>Zahl <span class="text-blue">${combo}</span> kam <span class="text-red">${freq}</span> mal vor</li>`).join('')}
         </ul>
-    `;
+    </div>`;
 }
 
 // NEW: letzen 6 Joker Einträge
