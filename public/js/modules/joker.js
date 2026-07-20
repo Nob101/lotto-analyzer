@@ -10,12 +10,6 @@ export function setJokerHistory(data) {
     sixDigitHistory = data.map(row => row.joker_number);
 }
 
-/**
- * WICHTIG: Erlaubt das temporäre Hinzufügen einer Zahl im lokalen Zustand
- */
-export function addLocalNumber(number) {
-    sixDigitHistory.push(number);
-}
 
 /**
  * Führt die  mathematische Analyse der Joker-Zahlen durch 

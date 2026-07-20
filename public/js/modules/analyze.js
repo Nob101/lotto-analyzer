@@ -80,7 +80,7 @@ export function analyze3ComboFrequency(sequences){
 // ---------------------------------------  
 
 
-// Anzeige der häufigsten Kombinationen UND der 2 häufigsten Zahlen im HTML
+// Anzeige der häufigsten Kombinationen UND der 2 häufigsten Zahlen mit innerHTML
 export function displayComboFreqAndTopNumbers(freqMap, combo3Freq, numFreq) {
   const outputDiv = document.getElementById('comboOutput');
   if (!outputDiv) return;
@@ -147,6 +147,11 @@ export function analyzeAndDisplayNumberSequences(zahlen) {
   const numFreq = analyzeNumberFrequency(sequences);
   displayComboFreqAndTopNumbers(freqMap, freqMap3, numFreq);
 }
+
+
+
+
+// ---------------------------------------  
 
 
 // ----------------------------------

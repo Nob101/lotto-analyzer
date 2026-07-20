@@ -43,6 +43,31 @@ app.post('/api/joker', saveJokerNumber);
 app.get('/api/lotto', getLottoHistory);
 app.post('/api/lotto', saveLottoDraw);
 
+
+
+
+
+// NEW: Server deaktivieren über Browserfenster 
+let lastPing = Date.now();
+let isBrowserOpen = false;
+
+app.post('/api/keep-alive', (req, res) => {
+    lastPing = Date.now();
+    isBrowserOpen = true;
+    res.sendStatus(200);
+});
+
+setInterval(() => {
+    if (isBrowserOpen && (Date.now() - lastPing > 8000)) {
+        console.log("Browser-Fenster geschlossen. Server wird heruntergefahren....");
+        process.exit(0);
+    }
+}, 3000);
+
+
+
+
+
 // Server starten
 app.listen(PORT, () => {
     console.log(` Server läuft auf: http://localhost:${PORT}....Browser wird geöffnet`);

@@ -285,11 +285,11 @@ if (lottoForm) {
                 });
 
 
-                                // --- DIAGNOSE-START ---
-                                //     const rawText = await response.text();
-                                //     console.log("Status-Code vom Server:", response.status);
-                                //     console.log("Rohe Antwort vom Server (auch bei Fehler 500):", rawText);
-                                // --- DIAGNOSE-ENDE ---
+    // --- DIAGNOSE-START ---
+    //     const rawText = await response.text();
+    //     console.log("Status-Code vom Server:", response.status);
+    //     console.log("Rohe Antwort vom Server (auch bei Fehler 500):", rawText);
+    // --- DIAGNOSE-ENDE ---
 
                 if (!response.ok) throw new Error('Fehler bei der Java-Berechnung');
                     lottoForm.reset();
@@ -327,6 +327,27 @@ navItems.forEach(item => {
     }
 });
 
+
+
+// Shutdown-Logik: Sende alle 4 Sekunden ein signal an Express
+function startHeartbeat() {
+    setInterval(() => {
+        fetch('/api/keep-alive', {
+            method: 'POST'
+        }).catch(()=> {
+            // Falls Server nicht antwortet
+            console.warn("Server nicht erreichbar. Heartbeat gestoppt.");
+            clearInterval(heartbeatInterval);
+        });
+    }, 4000);
+}
+
+
+
+
+
+
+
 // INITIALISIERUNG
 async function init() {
     await loadJokerDataAndAnalyze();
@@ -335,6 +356,8 @@ async function init() {
 
     randomGuesser();
     ladeWetter();
+
+    startHeartbeat();  //NEW
 }
 
 init();
