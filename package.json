@@ -13,7 +13,7 @@
   "license": "ISC",
   "description": "Statistische Analyse von Lotto-Ziehungen (Euromillionen) und Joker-Zahlen | SQLite-Datenbankanbindung | Express-Backend und Wetter-API-Integration.",
   "dependencies": {
-    "better-sqlite3": "^13.0.1",
+    "better-sqlite3": "^13.0.2",
     "express": "^5.2.1"
   },
   "devDependencies": {
